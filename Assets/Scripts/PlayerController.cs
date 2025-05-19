@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("움직임")]
     public float moveSpeed;
     public float jumpForce;
     private Vector2 curMovementInput;
