@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69c20408f99fda438baeffe8ca340f7, type: 3}
+  m_Name: Item_Speed
+  m_EditorClassIdentifier: 
+  displayName: "\uD558\uB298\uC0C9 \uBB3C\uC57D"
+  description: "\uBA39\uC73C\uBA74 \uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9D1\uB2C8\uB2E4."
+  type: 0
+  dropPrefab: {fileID: 7603983730955358313, guid: b1b2ba3ee4221f84197c67f89a59554f, type: 3}

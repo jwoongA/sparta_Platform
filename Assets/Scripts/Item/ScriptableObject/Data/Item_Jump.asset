@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69c20408f99fda438baeffe8ca340f7, type: 3}
+  m_Name: Item_Jump
+  m_EditorClassIdentifier: 
+  displayName: "\uD5C8\uBE0C\uCC28"
+  description: "\uC65C\uC778\uC9C0 \uBAA8\uB974\uC9C0\uB9CC \uC810\uD504\uB825\uC774
+    \uB192\uC544\uC9D1\uB2C8\uB2E4."
+  type: 1
+  dropPrefab: {fileID: 5151738318312513923, guid: aea5df0a38a88b04c816a04bf9705dcd, type: 3}
