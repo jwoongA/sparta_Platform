@@ -11,9 +11,13 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     private Vector2 curMovementInput;
-    
+    public LayerMask groundLayer;
+    public Transform groundCheck;
+    public float groundRadius = 0.2f;
     private Rigidbody rb;
-
+    
+    private bool isGrounded = false;
+    
     [Header("화면 설정")]
     public Transform cameraContainer;
     public float minXLook;
@@ -31,6 +35,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Update()
+    {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundLayer);
     }
 
     private void FixedUpdate()
@@ -60,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        if (context.phase == InputActionPhase.Started && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
         }
