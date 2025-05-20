@@ -10,13 +10,15 @@ public class PlayerController : MonoBehaviour
     [Header("움직임")]
     public float moveSpeed;
     public float jumpForce;
-    private Vector2 curMovementInput;
+    public float sprintSpeed;
+    [HideInInspector] public Vector2 curMovementInput;
     public LayerMask groundLayer;
     public Transform groundCheck;
     public float groundRadius = 0.2f;
     private Rigidbody rb;
     
     private bool isGrounded = false;
+    [HideInInspector] public bool isSprinting = false;
     
     [Header("화면 설정")]
     public Transform cameraContainer;
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 mouseDelta;
     public bool canLook = true;
 
+    public PlayerCondition playerCondition;
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,6 +48,12 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // 스태미너가 없으면 달리기 종료
+        if (isSprinting && !playerCondition.CanSprint())
+        {
+            isSprinting = false;
+        }
+        
         Move();
     }
 
@@ -71,14 +81,16 @@ public class PlayerController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started && isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 
     private void Move()
     {
+        float currentSpeed = isSprinting ? sprintSpeed : moveSpeed;
+        
         Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
+        dir *= currentSpeed;
         dir.y = rb.velocity.y;
 
         rb.velocity = dir;
@@ -98,5 +110,17 @@ public class PlayerController : MonoBehaviour
     public void OnLook(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            isSprinting = true;
+        }
+        else if (context.phase == InputActionPhase.Canceled)
+        {
+            isSprinting = false;
+        }
     }
 }
