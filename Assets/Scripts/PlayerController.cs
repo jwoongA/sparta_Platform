@@ -11,11 +11,26 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     private Vector2 curMovementInput;
+    
     private Rigidbody rb;
 
-    void Start()
+    [Header("화면 설정")]
+    public Transform cameraContainer;
+    public float minXLook;
+    public float maxXLook;
+    private float camCurXRot;
+    public float lookSensitivity;
+    private Vector2 mouseDelta;
+    public bool canLook = true;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+    
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void FixedUpdate()
@@ -23,6 +38,14 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
+    private void LateUpdate()
+    {
+        if (canLook)
+        {
+            CameraLook();
+        }
+    }
+    
     public void OnMove(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed)
@@ -50,5 +73,21 @@ public class PlayerController : MonoBehaviour
         dir.y = rb.velocity.y;
 
         rb.velocity = dir;
+    }
+
+    void CameraLook()
+    {
+        // 위아래 (Pitch) 카메라 회전 - X축
+        camCurXRot -= mouseDelta.y * lookSensitivity; // Y값은 위아래니까 y 기준
+        camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
+        cameraContainer.localEulerAngles = new Vector3(camCurXRot, 0, 0);
+
+        // 좌우 (Yaw) 캐릭터 회전 - Y축
+        transform.Rotate(Vector3.up * mouseDelta.x * lookSensitivity);
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        mouseDelta = context.ReadValue<Vector2>();
     }
 }
