@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 194179030736234872}
   - component: {fileID: 4069154017394177899}
   - component: {fileID: 8320897289241256897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottle8_2K
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8371114631557907902}
   - component: {fileID: 2016410044348531598}
   - component: {fileID: 7761627540323997597}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item_Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

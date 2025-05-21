@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3575165323114469719}
   - component: {fileID: 7560309254873907063}
   - component: {fileID: 6184706000072590426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item_Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 6845749360921103467}
   - component: {fileID: 6486606681147423981}
   - component: {fileID: 7766906787057434004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottle4_2K
   m_TagString: Untagged
   m_Icon: {fileID: 0}

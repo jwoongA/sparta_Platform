@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5894852297144178533}
   - component: {fileID: 4222021317871628334}
   - component: {fileID: 5868383500542217543}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottle3_2K
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6625892789223545223}
   - component: {fileID: 6270286776349126336}
   - component: {fileID: 5519822524686270626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Item_Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
