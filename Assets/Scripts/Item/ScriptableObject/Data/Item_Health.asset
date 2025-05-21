@@ -17,3 +17,6 @@ MonoBehaviour:
     \uBB3C\uC57D\uC785\uB2C8\uB2E4. \uB9DB\uC740 \uC5C6\uC2B5\uB2C8\uB2E4."
   type: 2
   dropPrefab: {fileID: 6268155042703845347, guid: 65e33603458e5664bbd6c7a911e0e867, type: 3}
+  consumables:
+  - _itemType: 2
+    value: 25

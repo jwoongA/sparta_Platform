@@ -9,7 +9,7 @@ public enum ItemType
     HealthPotion
 }
 
-[SerializeField]
+[System.Serializable]
 public class ItemDataConsumable
 {
     public ItemType _itemType;

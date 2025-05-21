@@ -31,9 +31,22 @@ public class PlayerController : MonoBehaviour
 
     public PlayerCondition playerCondition;
     
+    public float baseSpeed = 4f;
+    public float baseJump = 100f;
+    
+    private Coroutine speedBoostCoroutine;
+    private Coroutine jumpBoostCoroutine;
+
+    public UICondition uiCondition;
+    Condition health { get { return uiCondition.health; } }
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        if (uiCondition == null)
+        {
+            GetComponent<UICondition>();
+        }
     }
     
     void Start()
@@ -122,5 +135,49 @@ public class PlayerController : MonoBehaviour
         {
             isSprinting = false;
         }
+    }
+    
+    public void UseItem(ItemData item)
+    {
+        foreach (var effect in item.consumables)
+        {
+            switch (effect._itemType)
+            {
+                case ItemType.SpeedBoost:
+                    StartCoroutine(ApplySpeedBoost(effect.value));
+                    break;
+                case ItemType.JumpBoost:
+                    StartCoroutine(ApplyJumpBoost(effect.value));
+                    break;
+                case ItemType.HealthPotion:
+                    RestoreHealth(effect.value);
+                    break;
+            }
+        }
+    }
+
+    private IEnumerator ApplySpeedBoost(float duration)
+    {
+        float boostSpeed = baseSpeed * 2f;
+        moveSpeed = boostSpeed;
+        
+        yield return new WaitForSeconds(duration);
+        
+        moveSpeed = baseSpeed;
+    }
+
+    private IEnumerator ApplyJumpBoost(float duration)
+    {
+        float boostJump = baseJump * 1.5f;
+        jumpForce = boostJump;
+        
+        yield return new WaitForSeconds(duration);
+        
+        jumpForce = baseJump;
+    }
+
+    public void RestoreHealth(float amount)
+    {
+        uiCondition.health.curValue = Mathf.Min(health.curValue + amount, health.maxValue);
     }
 }

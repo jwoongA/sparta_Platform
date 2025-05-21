@@ -673,6 +673,9 @@ MonoBehaviour:
   lookSensitivity: 0.1
   canLook: 1
   playerCondition: {fileID: 504112351}
+  baseSpeed: 4
+  baseJump: 100
+  uiCondition: {fileID: 861342536}
 --- !u!114 &504112350
 MonoBehaviour:
   m_ObjectHideFlags: 0

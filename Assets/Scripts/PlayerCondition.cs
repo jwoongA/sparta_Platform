@@ -58,4 +58,6 @@ public class PlayerCondition : MonoBehaviour
     {
         return stamina.curValue > 0f;
     }
+    
+    
 }
