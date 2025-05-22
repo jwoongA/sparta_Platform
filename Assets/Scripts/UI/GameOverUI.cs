@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverUI : MonoBehaviour
 {
@@ -34,5 +35,11 @@ public class GameOverUI : MonoBehaviour
         }
         
         Time.timeScale = 1f;
+    }
+
+    public void RetryButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        HideGameOverUI();
     }
 }
