@@ -1,6 +1,6 @@
 # sparta_Platform
 
-정상을 향해 올라가는 게임(정상은 미완성)
+정상을 향해 올라가는 게임
 
 
 https://github.com/user-attachments/assets/edf57c7d-751d-46dc-b14e-94d0941736ff
